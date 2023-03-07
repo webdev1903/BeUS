@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
         } else {
           temp.quantity--;
         }
-        await Product.findByIdAndUpdate(temp._id, temp);
+        await temp.save();
       }
     });
     return res.status(201).send({ message: "success" });
